@@ -36,7 +36,7 @@ class Bar {
   orderBtn;
 }
 
-fdescribe("BookListComponent", () => {
+describe("BookListComponent", () => {
   let component: BookListComponent;
   let fixture: ComponentFixture<BookListComponent>;
   let compiled;
