@@ -1,4 +1,7 @@
 import { OrderBtnDirective } from "./order-btn.directive";
+import { Component, DebugElement } from "@angular/core";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
 
 @Component({
   selector: "",
@@ -20,9 +23,35 @@ class Foo {
   };
 }
 
-// describe('OrderBtnDirective', () => {
-//   it('should create an instance', () => {
-//     const directive = new OrderBtnDirective();
-//     expect(directive).toBeTruthy();
-//   });
-// });
+describe("A component with OrderBtnDirective", () => {
+  let fixture: ComponentFixture<Foo>;
+  let element: DebugElement;
+  let inst: OrderBtnDirective;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [Foo, OrderBtnDirective]
+    });
+    fixture = TestBed.createComponent(Foo);
+    element = fixture.debugElement.query(By.directive(OrderBtnDirective));
+    inst = element.injector.get(OrderBtnDirective);
+  });
+  describe("orderBtn", () => {
+    it("should be a button", () => {
+      expect(inst.orderBtnElement.tagName).toBe("BUTTON");
+    });
+    it("should show `Kauf mich`", () => {
+      fixture.detectChanges();
+      expect(inst.orderBtnElement.innerText).toBe("Design Patterns");
+    });
+    it("should write a console.log if clicked", () => {
+      fixture.detectChanges();
+      spyOn(console, "log");
+      inst.orderBtnElement.click();
+      expect(console.log).toHaveBeenCalledWith(
+        "this.orderBtn:",
+        "978-0-20163-361-0"
+      );
+    });
+  });
+});
