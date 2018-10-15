@@ -12,6 +12,7 @@ import { OrderBtnDirective } from "./order-btn.directive";
 import { BookEditComponent } from "./book-edit/book-edit.component";
 import { BookNewComponent } from "./book-new/book-new.component";
 import { LeaveGuard } from "./leave.guard";
+import { PagesPipe } from './pages.pipe';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { LeaveGuard } from "./leave.guard";
     BookDetailsComponent,
     OrderBtnDirective,
     BookEditComponent,
-    BookNewComponent
+    BookNewComponent,
+    PagesPipe
   ],
   exports: [BooksComponent],
   providers: [LeaveGuard]
