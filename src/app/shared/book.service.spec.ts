@@ -56,7 +56,7 @@ describe("BooksService", () => {
     });
   });
 
-  // check after each test there is no pending(open) request
+  // check after each test there is no pending (open) request
   afterEach(inject(
     [HttpTestingController],
     (backend: HttpTestingController) => {
