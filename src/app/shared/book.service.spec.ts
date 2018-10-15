@@ -77,7 +77,7 @@ describe("BooksService", () => {
       });
       // Wait for the call and response with mockdata  `.flush()`
       backend
-        .expectOne("http://localhost:4730/books/")
+        .expectOne("http://localhost:4730/books")
         .flush(booksStub, { status: 200, statusText: "Ok" });
     }
   ));
@@ -89,7 +89,7 @@ describe("BooksService", () => {
         expect(book).toEqual(booksStub[0]);
       });
       backend
-        .expectOne("http://localhost:4730/books/1234/")
+        .expectOne("http://localhost:4730/books/1234")
         .flush(booksStub[0], { status: 200, statusText: "Ok" });
     }
   ));
