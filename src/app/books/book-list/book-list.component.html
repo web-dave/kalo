@@ -1,0 +1,8 @@
+<span>BOOK-LIST</span>
+<div *ngIf="books">
+  <app-book-preview *ngFor="let book of books; trackBy:trackBy" [change]="change" [book]="book" (bookselected)="selectBook($event)"></app-book-preview>
+</div>
+<button (click)="changeBook()">changeBook</button>
+<a [routerLink]="['new']" class="btn btn-default btn-sm">
+  NEW
+</a>
