@@ -39,6 +39,7 @@ class Bar {
 fdescribe("BookListComponent", () => {
   let component: BookListComponent;
   let fixture: ComponentFixture<BookListComponent>;
+  let compiled;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -59,10 +60,18 @@ fdescribe("BookListComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BookListComponent);
     component = fixture.componentInstance;
+
+    compiled = fixture.nativeElement;
+
     fixture.detectChanges();
   });
 
   it("should create", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should display 3 books", () => {
+    let elements = compiled.querySelectorAll("app-book-preview");
+    expect(elements.length).toBe(3);
   });
 });
