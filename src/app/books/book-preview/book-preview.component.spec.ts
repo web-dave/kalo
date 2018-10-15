@@ -32,6 +32,7 @@ describe("BookPreviewComponent", () => {
     expect(component.book.title).toBe("Hello World");
     component.bookselected.subscribe(b => (selectedBook = b));
     component.selectThisBook();
+    // component.
     expect(component.book.title).toBe(selectedBook.title);
   }));
 });
